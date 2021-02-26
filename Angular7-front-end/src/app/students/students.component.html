@@ -1,0 +1,30 @@
+<table class="table table-hover">
+    <thead class="thead-light">
+      <th>Student No.</th>
+      <th>Grade</th>
+      <th>Frist Name</th>
+      <th>Last Name</th>
+      <th>T.Marks</th>
+      <th>
+        <a class="btn btn-outline-success" routerLink="/student"><i class="fa fa-plus-square"></i> Create New</a>
+      </th>
+    </thead>
+    <tbody>
+        <tr *ngIf="studentList.length==0" >
+            <td class="font-italic text-center" colspan="2">
+              No Students records in the database
+            </td>
+        </tr>
+
+      <tr *ngFor="let item of studentList">
+        <th (click)="openForEdit(item.StudentID)">{{item.RegNo}}</th>
+        <th (click)="openForEdit(item.StudentID)">{{item.Grade}}</th>
+        <td (click)="openForEdit(item.StudentID)">{{item.FirstName}}</td>
+        <td (click)="openForEdit(item.StudentID)">{{item.LastName}}</td>
+        <td (click)="openForEdit(item.StudentID)">{{item.TMarks}}</td>
+        <td>
+            <a class="btn text-danger" (click)="onStudentDelete(item.StudentID)"><i class="fa fa-trash fa-lg"></i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
